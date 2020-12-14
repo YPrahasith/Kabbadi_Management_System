@@ -1,0 +1,68 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='dashboard.css')}}">
+{% endblock %}
+
+{% block content %}
+
+    {% include 'navbar.html' %}
+
+
+    <div class="container-fluid">
+      <div class="row">
+        {% include 'sidebar.html' %}
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">Welcome, {{ name }}</h1>
+
+          <h2 class="sub-header text-center">League Details</h2>
+
+          {% with messages = get_flashed_messages(category_filter) %}
+          {% if messages %}
+          <div class="alert alert-success alert-dismissible" role="alert">
+             {% for message in messages %}
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+             <strong>Success!</strong> {{message}}
+             {% endfor %}
+          </div>
+          {% endif %}
+          {% endwith %}
+
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>League id</th>
+                  <th>League Name</th>
+                  <th>Country</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for spa in spas %}
+                <tr>
+                  <td>{{loop.index}}</td>
+                  <td>{{spa.field1}}</td>
+                  <td>{{spa.field2}}</td>
+                  <td>{{spa.field3}}</td>
+                  <td>
+                    <form method="POST" action="{{ url_for('spadelete') }}" onSubmit="return confirm('Are you sure you wish to delete this?');">
+                      <input type="hidden" value="{{spa.id}}" name="id">
+                      <button type="submit" class="btn"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                    </form>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

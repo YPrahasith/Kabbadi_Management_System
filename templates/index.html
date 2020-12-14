@@ -1,0 +1,256 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}
+Demo App
+{% endblock %}
+{% block styles %}
+{{ super ()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='starter-template.css')}}">
+{% endblock %}
+{% block content %}
+<nav class="navbar navbar-inverse navbar-fixed-top">
+   <div class="container">
+      <div class="navbar-header">
+         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+         <span class="sr-only">Toggle navigation</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         </button>
+         <a class="navbar-brand" href="#">Kabbadi Management</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+         <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+            <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+         </ul>
+      </div>
+   </div>
+</nav>
+<div class="container-fluid index">
+   <div class="row center">
+      <div class="col-md-6 heading">
+         <div class="starter-template">
+            <h1 class="display-1">Kabbadi Sports Management Model</h1>
+            <h2>Use this website to register to our club as well as to add your every match details.<br> </h2>
+         </div>
+      </div>
+      <div class="col-md-6 forms">
+         <div class="container-fluid forms-container">
+            <ul class="nav nav-tabs">
+               <li class="active"><a data-toggle="tab" href="#spa">League</a></li>
+               <li><a data-toggle="tab" href="#saloon">Club</a></li>
+               <li><a data-toggle="tab" href="#carwash">Player</a></li>
+               <li><a data-toggle="tab" href="#cloth">Transfer</a></li>
+               <li><a data-toggle="tab" href="#auto">Points</a></li>
+               <li><a data-toggle="tab" href="#house">Appearance</a></li>
+               <li><a data-toggle="tab" href="#luxury">Matches</a></li>
+            </ul>
+            <div class="tab-content">
+               <div id="spa" class="tab-pane fade in active">
+                  <div class="spa_update form-section first  ">
+                     <div>
+                        <h2>League Details</h2>
+                        <hr/>
+                        {% with messages = get_flashed_messages(category_filter=["spa"]) %}
+                        {% if messages %}
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                           {% for message in messages %}
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                           <strong>Success!</strong> {{message}}
+                           {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% endwith %}
+                        <form id="spa" method="post">
+                           {{ form.spa.hidden_tag() }}
+                           {{ wtf.form_field(form.spa.field1) }}
+                           {{ wtf.form_field(form.spa.field2) }}
+                           {{ wtf.form_field(form.spa.field3) }}
+                           <input type="submit" class="btn btn-lg btn-primary " name="submit_spa"/>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+               <div id="saloon" class="tab-pane fade">
+                  <div class="saloon_update form-section second  ">
+                     <div>
+                        <h2>Club Details</h2>
+                        <hr/>
+                        {% with messages = get_flashed_messages(category_filter=["saloon"]) %}
+                        {% if messages %}
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                           {% for message in messages %}
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                           <strong>Success!</strong> {{message}}
+                           {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% endwith %}
+                        <form id="saloon" method="post">
+                           {{ form.saloon.hidden_tag() }}
+                           {{ wtf.form_field(form.saloon.field1) }}
+                           {{ wtf.form_field(form.saloon.field2) }}
+                           {{ wtf.form_field(form.saloon.field3) }}
+                           {{ wtf.form_field(form.saloon.field4) }}
+                           {{ wtf.form_field(form.saloon.field5) }}
+                           <button type="submit" class="btn btn-lg btn-primary  " name="submit_saloon">Submit</button>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+               <div id="carwash" class="tab-pane fade">
+                  <div class="car_update form-section third  ">
+                     <div>
+                        <h2>Player Details</h2>
+                        <hr/>
+                        {% with messages = get_flashed_messages(category_filter=["car"]) %}
+                        {% if messages %}
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                           {% for message in messages %}
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                           <strong>Success!</strong> {{message}}
+                           {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% endwith %}
+                        <form id="car" method="post">
+                           {{ form.car.hidden_tag() }}
+                           {{ wtf.form_field(form.car.field1) }}
+                           {{ wtf.form_field(form.car.field2) }}
+                           {{ wtf.form_field(form.car.field3) }}
+                           {{ wtf.form_field(form.car.field4) }}
+                           <button type="submit" class="btn btn-lg btn-primary" name="submit_car">Submit</button>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+               <div id="cloth" class="tab-pane fade">
+                  <div class="Cloth_update form-section first  ">
+                     <div>
+                        <h2>Transfer Details</h2>
+                        <hr/>
+                        {% with messages = get_flashed_messages(category_filter=["cloth"]) %}
+                        {% if messages %}
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                           {% for message in messages %}
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                           <strong>Success!</strong> {{message}}
+                           {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% endwith %}
+                        <form id="cloth" method="post">
+                           {{ form.cloth.hidden_tag() }}
+                           {{ wtf.form_field(form.cloth.field1) }}
+                           {{ wtf.form_field(form.cloth.field2) }}
+                           {{ wtf.form_field(form.cloth.field3) }}
+                           {{ wtf.form_field(form.cloth.field4) }}
+                           {{ wtf.form_field(form.cloth.field5) }}
+                           <button type="submit" class="btn btn-lg btn-primary  " name="submit_cloth">Submit</button>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+               <div id="auto" class="tab-pane fade">
+                  <div class="repairs_update form-section second  ">
+                     <div>
+                        <h2>Points Details</h2>
+                        <hr/>
+                        {% with messages = get_flashed_messages(category_filter=["auto"]) %}
+                        {% if messages %}
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                           {% for message in messages %}
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                           <strong>Success!</strong> {{message}}
+                           {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% endwith %}
+                        <form id="auto" method="post">
+                           {{ form.auto.hidden_tag() }}
+                           {{ wtf.form_field(form.auto.field1) }}
+                           {{ wtf.form_field(form.auto.field2) }}
+                           {{ wtf.form_field(form.auto.field3) }}
+                           <button type="submit" class="btn btn-lg btn-primary" name="submit_auto">Submit</button>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+               <div id="house" class="tab-pane fade">
+                  <div class="house_update form-section third  ">
+                     <div>
+                        <h2>Appearance Details</h2>
+                        <hr/>
+                        {% with messages = get_flashed_messages(category_filter=["house"]) %}
+                        {% if messages %}
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                           {% for message in messages %}
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                           <strong>Success!</strong> {{message}}
+                           {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% endwith %}
+                        <form id="house" method="post">
+                           {{ form.house.hidden_tag() }}
+                           {{ wtf.form_field(form.house.field1) }}
+                           {{ wtf.form_field(form.house.field2) }}
+                           {{ wtf.form_field(form.house.field3) }}
+                           <button type="submit" class="btn btn-lg btn-primary  " name="submit_house">Submit</button>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+               <div id="luxury" class="tab-pane fade">
+                  <div class="luxury_update form-section first  ">
+                     <div>
+                        <h2>Matches Details</h2>
+                        <hr/>
+                        {% with messages = get_flashed_messages(category_filter=["luxury"]) %}
+                        {% if messages %}
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                           {% for message in messages %}
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                           <strong>Success!</strong> {{message}}
+                           {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% endwith %}
+                        <form id="luxury" method="post">
+                           {{ form.luxury.hidden_tag() }}
+                           {{ wtf.form_field(form.luxury.field1) }}
+                           {{ wtf.form_field(form.luxury.field2) }}
+                           {{ wtf.form_field(form.luxury.field3) }}
+                           {{ wtf.form_field(form.luxury.field4) }}
+                           {{ wtf.form_field(form.luxury.field5) }}
+                           {{ wtf.form_field(form.luxury.field6) }}
+                           <button type="submit" class="btn btn-lg btn-primary" name="submit_luxury">Submit</button>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<script>
+   document.addEventListener("DOMContentLoaded", function(event) {
+     $('a[data-toggle="tab"]').click(function (e) {
+         e.preventDefault();
+         $(this).tab('show');
+     });
+
+     $('a[data-toggle="tab"]').on("shown.bs.tab", function (e) {
+         var id = $(e.target).attr("href");
+         localStorage.setItem('selectedTab', id)
+     });
+
+     var selectedTab = localStorage.getItem('selectedTab');
+     if (selectedTab != null) {
+         $('a[data-toggle="tab"][href="' + selectedTab + '"]').tab('show');
+     }});
+</script>
+{% endblock %}

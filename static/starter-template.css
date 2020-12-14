@@ -1,0 +1,168 @@
+html,
+body {
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+	overflow-x: hidden;
+}
+
+body {
+	padding-top: 50px;
+	background-color: #F1FAEE;
+}
+
+.index {
+	width: 100vw !important;
+}
+
+.starter-template {
+	padding: 7rem;
+	height: 93vh;
+}
+
+.form-section {
+	height: 86vh;
+}
+
+.forms-container {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
+.display-1 {
+	font-size: 6rem;
+	font-weight: 300;
+	line-height: 1.2;
+}
+
+@media only screen and (max-width: 480px) {
+	.display-1 {
+		font-size: 4.5rem;
+		font-weight: 300;
+		line-height: 1.2;
+	}
+	.starter-template {
+		padding: 4rem;
+	}
+}
+
+.starter-template h1 {
+	color: #f1faee;
+	font-weight: bold;
+}
+
+.heading {
+	background-color: #E63946;
+}
+
+.form-section {
+	padding: 40px 15px;
+	text-align: center;
+}
+
+.form-section h2 {
+	font-weight: bold;
+	font-family: Tahoma, sans-serif;
+}
+
+.form-section hr {
+	width: 50vw;
+}
+
+.form-section label {
+	font-weight: 300;
+	margin-right: 15px;
+	width:50px;
+}
+
+.index .col-md-6 {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.forms .nav a {
+	color: #1d3557;
+	font-weight: bold;
+	padding: 15px;
+}
+
+.form-section h1 {
+	padding-bottom: 2rem;
+}
+
+.form-section button {
+	color: #000;
+}
+
+.first {
+	background-color: #a8dadc;
+}
+
+.second {
+	background-color: #457b9d;
+	color: #ffffff;
+}
+
+.third {
+	background-color: #1d3557;
+	color: #ffffff;
+}
+
+input[type=text] {
+	padding: 6px 10px;
+	margin: 2px 0;
+	box-sizing: border-box;
+	border: 0;
+}
+
+.form-section .form-control{
+	display: inline;
+	width: 250px;
+}
+
+
+
+/*Nav Tabs*/
+
+@media (min-width: 768px) {
+	.nav-tabs {
+		width: 100%;
+		border-bottom: 0;
+	}
+	.nav-tabs>li {
+		float: none;
+	}
+	.nav-tabs>li>a {
+		margin-bottom: 5px;
+		text-align: center;
+	}
+	.nav-tabs>.dropdown .dropdown-menu {
+		top: auto;
+		left: auto;
+	}
+	.nav-tabs>li {
+		display: table-cell;
+		width: 1%;
+	}
+	.nav-tabs>li>a {
+		margin-bottom: 0;
+	}
+	.nav-tabs>li>a {
+		margin-right: 0;
+		border-radius: 4px;
+	}
+	.nav-tabs>.active>a,
+	.nav-tabs>.active>a:hover,
+	.nav-tabs>.active>a:focus {
+		border: 1px solid #ddd;
+	}
+	.nav-tabs>li>a {
+		border-bottom: 1px solid #ddd;
+		border-radius: 4px 4px 0 0;
+	}
+	.nav-tabs>.active>a,
+	.nav-tabs>.active>a:hover,
+	.nav-tabs>.active>a:focus {
+		border-bottom-color: #fff;
+	}
+}
